@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace _2025_NetCore_Empleados.Controllers
 {
-    public class empreadoController : Controller
+    public class empleadoController : Controller
     {
         private readonly AppDbContext _context;
 
-        public empreadoController(AppDbContext context)
+        public empleadoController(AppDbContext context)
         {
             _context = context;
         }
