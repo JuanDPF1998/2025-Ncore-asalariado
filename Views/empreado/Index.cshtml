@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@model List<Empleados>
+
+<div class="container">
+    <div class="row">
+        <h2>Lista de empleados</h2>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombres:</th>
+                <th>Apellidos:</th>
+                <th>Edad:</th>
+                <th>Dni Empleado</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var empleado in Model)
+            {
+                <tr>
+                    <td>@empleado.nombres</td>
+                    <td>@empleado.apellidos</td>
+                    <td>@empleado.edad</td>
+                    <td>@empleado.dniEmpleado</td>
+                    <td>@empleado.email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
