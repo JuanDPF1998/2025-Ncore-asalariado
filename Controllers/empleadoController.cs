@@ -28,12 +28,12 @@ namespace _2025_NetCore_Empleados.Controllers
             }
 
         }
-        public IActionResult create()
+        public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult create(Empleados empleados)
+        public IActionResult Create(Empleados empleados)
         {
             try
             {
@@ -44,6 +44,15 @@ namespace _2025_NetCore_Empleados.Controllers
             {
                 return Content($"Error al agregar un empleado {ex.Message}");
             }
+        }
+        public IActionResult Edit(int? id)
+        {
+            if( id == null)
+            {
+                return NotFound();
+            }
+            var empleado = _context.empleadosDbSet.Find(id);
+            return View(empleado);
         }
     }
 }

@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewData["Title"] = "Edit";
+}
+
+@model Empleados
+
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col">
+            <h2 class="border-bottom pb-2">@ViewData["Title"]</h2>
+            <p class="text-muted">Actualizar informacion del colaborador</p>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form asp-action="Edit" class="needs-validation" novalidate>
+                <input type="hidden" asp-for="idEmpleado"/>
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-light">
+                        <h5 class="mb-0">Informacion personal</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="nombres" class="form-label"></label>
+                                <input asp-for="nombres" class="form-control" required/>
+                                <span asp-validation-for="nombres" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="apellidos" class="form-label"></label>
+                                <input asp-for="apellidos" class="form-control" required/>
+                                <span asp-validation-for="apellidos" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="edad" class="form-label"></label>
+                            <input asp-for="edad" class="form-control" required/>
+                            <span asp-validation-for="edad" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <!--Registro de la empresa sobre el colaborador-->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-light">
+                        <h5 class="mb-0">Informacion de contacto</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="dniEmpleado" class="form-label"></label>
+                                <input asp-for="dniEmpleado" class="form-control" required/>
+                                <span asp-validation-for="dniEmpleado" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="email" class="form-label"></label>
+                                <input asp-for="email" class="form-control" type="email" required/>
+                                <span asp-validation-for="email" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        // Ejemplo de validación personalizada
+        document.addEventListener('DOMContentLoaded', function() {
+            // Puedes agregar validaciones JS adicionales aquí
+        });
+    </script>
+}
