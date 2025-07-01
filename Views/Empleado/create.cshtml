@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewData["Title"] = "Agregar nuevo empleado";
+}
+
+@model Empleados
+
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col">
+            <h2 class="border bottom pb-2 text-center">@ViewData["Title"]</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form asp-action="create" class="needs-validation novalidate">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                <!--Grupo de nombre completo-->
+                <div class="row mb-3">
+                    <div class="col-md-4 mb-3">
+                        <label asp-for="nombres" class="form-label">Nombres(s)</label>
+                        <input asp-for="nombres" class="form-control" required/>
+                        <span asp-validation-for="nombres" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label asp-for="apellidos" class="form-label">Apellidos(s)</label>
+                        <input asp-for="apellidos" class="form-control" required/>
+                        <span asp-validation-for="apellidos" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label asp-for="edad" class="form-label">Edad</label>
+                        <input asp-for="edad" class="form-control" required/>
+                        <span asp-validation-for="edad" class="text-danger"></span>
+                    </div>
+                </div>
+                <!--Datos del empleado em el puesto-->
+                <div class="row mb-3">
+                    <div class="col-md-4 mb-3">
+                        <label asp-for="dniEmpleado" class="form-label">Numero de empleado</label>
+                        <input asp-for="dniEmpleado" class="form-control" required/>
+                        <span asp-validation-for="dniEmpleado" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label asp-for="email" class="form-label">Correo electronico</label>
+                        <input asp-for="email" class="form-control" required/>
+                        <span asp-validation-for="email" class="text-danger"></span>
+                    </div>
+                </div>
+                <!--Botones de accion-->
+                <div class="form-group mt-4">
+                    <button type="submit" class="btn btn-primary me-2">
+                        <i class="bi bi-save"></i>Guardar
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bg bi-arrow-left"></i>Volver
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        //Ejemplo de validacion personalizada
+        document.addEventListener('DOMContentLoaded', function(){
+            // Puedes agregar validaciones JS adicionales aquí
+        });
+    </script>
+}

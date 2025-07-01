@@ -1,4 +1,5 @@
 ﻿using _2025_NetCore_Empleados.Data;
+using _2025_NetCore_Empleados.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,6 +27,10 @@ namespace _2025_NetCore_Empleados.Controllers
                 return Content("Se ha producido una excepcion :" + ex.Message);
             }
 
+        }
+        public IActionResult create()
+        {
+            return View();
         }
     }
 }
