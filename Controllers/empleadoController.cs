@@ -32,5 +32,18 @@ namespace _2025_NetCore_Empleados.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult create(Empleados empleados)
+        {
+            try
+            {
+                var empleado = _context.empleadosDbSet.Add(empleados);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }catch(Exception ex)
+            {
+                return Content($"Error al agregar un empleado {ex.Message}");
+            }
+        }
     }
 }

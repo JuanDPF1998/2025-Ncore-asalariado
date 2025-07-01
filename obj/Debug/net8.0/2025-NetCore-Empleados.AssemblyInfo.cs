@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("2025-NetCore-Empleados")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+04a7b03ae5be5b31f4f815b5885e11880e8830b2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5a7236188e67380bc62324f63ad236478071b7c9")]
 [assembly: System.Reflection.AssemblyProductAttribute("2025-NetCore-Empleados")]
 [assembly: System.Reflection.AssemblyTitleAttribute("2025-NetCore-Empleados")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
