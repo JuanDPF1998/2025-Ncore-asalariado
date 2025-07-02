@@ -1,6 +1,7 @@
 ﻿using _2025_NetCore_Empleados.Data;
 using _2025_NetCore_Empleados.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 using Microsoft.EntityFrameworkCore;
 
 namespace _2025_NetCore_Empleados.Controllers
@@ -77,6 +78,33 @@ namespace _2025_NetCore_Empleados.Controllers
             }
              var empleado =   _context.empleadosDbSet.Find(id);
                 return View(empleado);
+        }
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                var empleado = _context.empleadosDbSet.Find(id);
+
+                if (ModelState.IsValid)
+                {
+                    _context.empleadosDbSet.Remove(empleado);
+                    _context.SaveChanges();
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(empleado);
+            }
+            catch (Exception ex) {
+                return Content($"Se produjo una excepcion al eliminar el registro {ex.Message}");
+            }
+            //if (ModelState.IsValid)
+            //{
+            //    var empleado = _context.empleadosDbSet.Find(id);
+            //      _context.empleadosDbSet.Remove(empleado);
+            //    _context.SaveChanges();
+            //    return RedirectToAction(nameof(Index));
+            //}
+            //return View();
         }
     }
 }
