@@ -69,5 +69,14 @@ namespace _2025_NetCore_Empleados.Controllers
             }
             return View(empleado);
         }
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+             var empleado =   _context.empleadosDbSet.Find(id);
+                return View(empleado);
+        }
     }
 }
