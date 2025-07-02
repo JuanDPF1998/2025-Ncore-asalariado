@@ -97,14 +97,6 @@ namespace _2025_NetCore_Empleados.Controllers
             catch (Exception ex) {
                 return Content($"Se produjo una excepcion al eliminar el registro {ex.Message}");
             }
-            //if (ModelState.IsValid)
-            //{
-            //    var empleado = _context.empleadosDbSet.Find(id);
-            //      _context.empleadosDbSet.Remove(empleado);
-            //    _context.SaveChanges();
-            //    return RedirectToAction(nameof(Index));
-            //}
-            //return View();
         }
     }
 }
