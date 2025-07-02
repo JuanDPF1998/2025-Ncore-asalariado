@@ -54,5 +54,20 @@ namespace _2025_NetCore_Empleados.Controllers
             var empleado = _context.empleadosDbSet.Find(id);
             return View(empleado);
         }
+        [HttpPost]
+        public IActionResult Edit(int id, Empleados empleados)
+        {
+            if (id != empleados.idEmpleado)
+            {
+                return NotFound();
+            }
+            var empleado = _context.empleadosDbSet.Update(empleados);
+            if (ModelState.IsValid)
+            {
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(empleado);
+        }
     }
 }
